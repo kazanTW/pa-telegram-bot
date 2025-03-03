@@ -1,2 +1,2 @@
 # pa-telegram-bot
-A Telegram Python-based bot for personal assistant
+A Python-based Telegram bot for personal assistant

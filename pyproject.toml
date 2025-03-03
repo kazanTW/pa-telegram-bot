@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "pa-telegram-bot"
+version = "0.1.0"
+description = "A Python-based Telegram bot for personal assistant"
+authors = ["Kazan <andyswebking@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "pa_telegram_bot"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+python-telegram-bot = {version = "^21.11.1", extras = ["all"]}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
