@@ -9,7 +9,9 @@ packages = [{include = "pa_telegram_bot"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-python-telegram-bot = {version = "^21.11.1", extras = ["all"]}
+telegram = "^0.0.1"
+python-dotenv = "^1.0.1"
+python-telegram-bot = {version = "20.0", extras = ["job-queue"]}
 
 
 [build-system]
