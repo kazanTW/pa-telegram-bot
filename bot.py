@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 
 from handlers import start, add_note, list_notes, reminder, set_reminder, schedule_reminders, mark_done
+from utils import load_data
 
 logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
 
@@ -12,6 +13,8 @@ TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
 if not TOKEN:
     raise ValueError("Cannot find TOKEN, please check your .env file.")
+
+load_data()
 
 def main():
     """這裡不使用 async，直接讓 `app.run_polling()` 管理事件迴圈"""
