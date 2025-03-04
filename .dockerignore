@@ -1,0 +1,19 @@
+# Poetry 依賴目錄
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 不要把開發工具配置放入 Docker
+.vscode/
+.idea/
+
+# 避免包含日誌和 JSON 設定
+logs/
+*.log
+data.json
+
+# 不要將環境變數檔案提交
+.env
+
