@@ -1,7 +1,7 @@
 import logging
 import os
 from dotenv import load_dotenv
-from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
+from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes, JobQueue
 
 from handlers import start, add_note, list_notes, reminder, set_reminder, schedule_reminders, mark_done
 from utils import load_data
@@ -19,6 +19,14 @@ load_data()
 def main():
     """這裡不使用 async，直接讓 `app.run_polling()` 管理事件迴圈"""
     app = Application.builder().token(TOKEN).build()
+
+    if app.job_queue is None:
+        raise RuntimeError(
+                """JobQueue cannot initialize,
+                 please check python-telegram-bot[job_queue] be installed correctly.
+                """)
+
+    app.job_queue.start()
 
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("add", add_note))
